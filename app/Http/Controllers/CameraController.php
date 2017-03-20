@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use DB,Mail,Requests;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Session;
 
 class CameraController extends Controller
 {
@@ -36,13 +37,23 @@ class CameraController extends Controller
     {
         return view('user.pages.contact');
     }
-    public function postContact()
+    public function postContact(Request $request)
     {
-        $data = ['hoten' => 'Đinh Thành Nhân'];
-       Mail::send('user.blocks.sendmail',$data,function($msg)
-       {
-        $msg->from('thanhnhan260594@gmail.com', 'Người gửi');
-        $msg->to('thanhnhan260594@gmail.com','Người nhận')->subject('Test send mail!');
-       });
+       $data = array(
+            'txtName' => $request->txtName,
+            'txtSubject' => $request->txtSubject,
+            'txtEmail'=> $request->txtEmail,
+            'txtContent'=> $request->txtContent
+            );
+        Mail::send('user.blocks.sendmail', $data ,function($message) use ($data){
+                $message->from($data['txtEmail'],$data['txtName']);
+                $message->to('thanhnhan260594@gmail.com', $data['txtName']);
+                $message->subject($data['txtSubject']);
+        });
+       echo "
+       <script>
+            alert('Cảm ơn bạn đã góp ý. Chúng tôi sẽ sẽ sớm liên hệ với bạn!');
+            window.location = '".url('/')."'
+       </script>";
     }
 }

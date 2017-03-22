@@ -5,7 +5,10 @@
 <div id="mainBody">
 <div class="container">
 	<hr class="soften">
-	<h1>Liên hệ</h1>
+	<ul class="breadcrumb">
+		<li><a href="{{url('/')}}">Trang chủ</a> <span class="divider">/</span></li>
+		<a href="{!!url('lien-he')!!}"><li class="active">Liên hệ</li></a>
+    </ul>
 	<hr class="soften"/>	
 	<div class="row">
 		<div class="span4">

@@ -22,7 +22,9 @@ Route::get('chi-tiet-san-pham/{id}/{slug}',['as'=>'Detail','uses'=>'CameraContro
 Route::get('lien-he',['as'=>'getContact','uses'=>'CameraController@getContact']);
 Route::post('lien-he',['as'=>'postContact','uses'=>'CameraController@postContact']);
 
-
+Route::get('tin-tuc',['as'=>'News','uses'=>'CameraController@News']);
+Route::get('gioi-thieu',['as'=>'Introduce','uses'=>'CameraController@Introduce']);
+Route::get('dich-vu',['as'=>'Service','uses'=>'CameraController@Service']);
 
 
 

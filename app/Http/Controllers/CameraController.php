@@ -33,10 +33,27 @@ class CameraController extends Controller
         $pdetail = DB::table('products')->where('id',$id)->first();
         return view('user.pages.product',compact('pdetail'));
     }
+
+    public function News()
+    {
+        return view('user.pages.news');
+    }
+
+    public function Introduce()
+    {
+        return view('user.pages.intro');
+    }
+
+    public function Service()
+    {
+        return view('user.pages.service');
+    }
+
     public function getContact()
     {
         return view('user.pages.contact');
     }
+
     public function postContact(Request $request)
     {
        $data = array(

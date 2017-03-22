@@ -49,8 +49,8 @@
 					<p class="text-primary">Ảnh đại diện</p>
 						<input class="form-control" placeholder="" type="file" name="fHinhAnh">
 					<br>
-					<p class="text-primary">Tình trạng:<input type="checkbox" name="chkTinhTrang" class="form-control"></p>
-					<br>					
+					<!-- <p class="text-primary">Tình trạng:<input type="checkbox" name="chkTinhTrang" class="form-control"></p>
+					<br> -->					
 						<button type="submit" class="btn btn-primary">Lưu</button> 											
 					<a href="{{asset('/admin/product/')}}">
 						<button type="button" class="btn btn-danger">Quay lại</button>	

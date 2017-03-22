@@ -17,7 +17,7 @@
 						</ul>
 					</div>
 				</li>
-				<li><a href="#" class=""><i class="lnr lnr-user"></i> <span>Khách hàng</span></a></li>
+				<li><a href="{{url('/admin/user')}}" class=""><i class="lnr lnr-user"></i> <span>Khách hàng</span></a></li>
 				<li><a href="#" class=""><i class="lnr lnr-dice"></i> <span>Hóa đơn</span></a></li>
 				<li><a href="#" class=""><i class="lnr lnr-envelope"></i> <span>Hỗ trợ</span></a></li>
 				<li><a href="icons.html" class=""><i class="lnr lnr-file-empty"></i> <span>Bài viết</span></a></li>					

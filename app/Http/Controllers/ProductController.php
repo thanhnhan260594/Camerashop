@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
+use App\Http\Requests\ProductUpdateRequest;
 use App\Product;
 use App\Cate;
 use App\Brand;
@@ -45,13 +46,46 @@ class ProductController extends Controller
     	return redirect()->route('admin.product.list')->with(['flash_level'=>'success','flash_message'=>'Thông báo||Thêm thành công']);
     }
 
-    public function getEdit()
+    public function getEdit($id)
     {
-
+        $product = Product::findOrFail($id)->toArray();
+        $cate = Cate::select('id','name')->get()->toArray();
+        $brand = Brand::select('id','name')->get()->toArray();
+        return view('admin.product.edit',compact('cate','brand','product'));
     }
 
-    public function postEdit()
+    public function postEdit($id, ProductUpdateRequest $request)
     {
+        $product = Product::find($id); 
+
+        $product->name = $request->txtSanPham;
+        $product->description = $request->txtMoTa;
+        $product->price = $request->txtGia;
+        $product->quantity = $request->txtSoLuong;
+        $product->id_cate = $request->sltDanhMuc;
+        $product->id_brand = $request->stlThuongHieu;
+        $product->slug = str_slug($request->txtSanPham);        
+        $product->status = 1;
+
+        $fHinh1 = $request->input('fHinh1');
+        
+        if(!empty($request->file('fHinhAnh')))
+        {
+
+            $file_name = $request->fHinhAnh->getClientOriginalName();
+            $product->image = $file_name;
+            $request->file('fHinhAnh')->move(public_path('uploads'), $file_name);
+            //cần xem lại
+            // if(!empty($file_name)){
+            //     File::delete($fHinh1); 
+            // }
+        }
+        // else{
+        //     echo "Not File";
+        // }
+        $product -> save();
+
+        return redirect() -> route('admin.product.list')->with(['flash_level'=>'success','flash_message'=>'Thông báo||Sửa thành công']);
 
     }
 

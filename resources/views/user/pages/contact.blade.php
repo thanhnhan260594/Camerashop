@@ -7,7 +7,7 @@
 	<hr class="soften">
 	<ul class="breadcrumb">
 		<li><a href="{{url('/')}}">Trang chủ</a> <span class="divider">/</span></li>
-		<a href="{!!url('lien-he')!!}"><li class="active">Liên hệ</li></a>
+		<a href="{!!url('/lien-he')!!}"><li class="active">Liên hệ</li></a>
     </ul>
 	<hr class="soften"/>	
 	<div class="row">

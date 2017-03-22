@@ -12,19 +12,16 @@
 */
 
 Route::get('/', 'CameraController@index');
-
 Route::get('loai-san-pham/{id}/{slug}',['as'=>'Cates','uses'=>'CameraController@Cates']);
-
 Route::get('thuong-hieu/{id}/{slug}',['as'=>'Brands','uses'=>'CameraController@Brands']);
-
 Route::get('chi-tiet-san-pham/{id}/{slug}',['as'=>'Detail','uses'=>'CameraController@Detail']);
-
 Route::get('lien-he',['as'=>'getContact','uses'=>'CameraController@getContact']);
 Route::post('lien-he',['as'=>'postContact','uses'=>'CameraController@postContact']);
-
 Route::get('tin-tuc',['as'=>'News','uses'=>'CameraController@News']);
 Route::get('gioi-thieu',['as'=>'Introduce','uses'=>'CameraController@Introduce']);
 Route::get('dich-vu',['as'=>'Service','uses'=>'CameraController@Service']);
+Route::get('dang-ky',['as'=>'getRegister','uses'=>'CameraController@getRegister']);
+Route::post('dang-ky',['as'=>'postRegister','uses'=>'CameraController@postRegister']);
 
 
 
@@ -62,13 +59,8 @@ Route::group(['prefix'=>'admin'], function(){
 		Route::get('delete/{id}',['as'=>'admin.product.getDelete','uses'=>'ProductController@getDelete']);
 	});
 
-	// Route::group(['prefix'=>'product'],function(){
-	// 	Route::get('',['as'=>'admin.product.list','uses'		=>'ProductController@getList']);
-	// 	Route::get('add',['as'=>'admin.product.getAdd','uses'		=>'ProductController@getAdd']);
-	// 	Route::post('add',['as'=>'admin.product.postAdd','uses'	=>'ProductController@postAdd']);
-	// 	Route::get('edit/{id}',['as'=>'admin.product.getEdit','uses'		=>'ProductController@getEdit']);
-	// 	Route::post('edit/{id}',['as'=>'admin.product.getEdit','uses'		=>'ProductController@postEdit']);
-	// 	Route::get('delete/{id}',['as'=>'admin.product.getDelete','uses'	=>'ProductController@getDelete']);
-	// });
+	Route::group(['prefix'=>'user'],function(){
+		Route::get('',['as'=>'admin.user.list','uses'=>'UserController@getList']);
+		});
 });
 

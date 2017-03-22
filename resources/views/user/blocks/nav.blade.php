@@ -17,23 +17,22 @@
 			 <li class=""><a href="{{url('/lien-he')}}">Liên hệ</a></li>
 			 <li class="">
 			 <a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">Đăng nhập</span></a>
-			<div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false" >
+			<div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false" style="text-align: center;">
 				  <div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 					<h3>Đăng nhập</h3>
 				  </div>
-				  <div class="modal-body">
+				  <div  class="modal-body">
 					<form class="form-horizontal loginFrm">
+						<input type="hidden" name="_token" value="{!! csrf_token() !!}">
 					  <div class="control-group">								
-						<input type="text" id="inputEmail" placeholder="Email">
+						<input type="text" id="inputEmail" placeholder="Email" name="txtEmail">
 					  </div>
 					  <div class="control-group">
-						<input type="password" id="inputPassword" placeholder="Password">
+						<input type="password" id="inputPassword" placeholder="Password" name="txtPassword">
 					  </div>
 					  <div class="control-group">
-						<label class="checkbox">
-						<input type="checkbox"> Nhớ mật khẩu
-						</label>
+						<a href="{{url('/dang-ky')}}">Chưa có tài khoản?</a>
 					  </div>
 					<button type="submit" class="btn btn-success">Đăng nhập</button>
 					<button class="btn" data-dismiss="modal" aria-hidden="true">Thoát</button>

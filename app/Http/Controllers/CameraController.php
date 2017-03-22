@@ -73,4 +73,15 @@ class CameraController extends Controller
             window.location = '".url('/')."'
        </script>";
     }
+
+    public function getRegister()
+    {
+        return view('user.pages.register');
+    }
+
+    public function postRegister(RegisterRequest $request)
+    {
+
+    }
+
 }
